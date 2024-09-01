@@ -150,7 +150,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <h2 class="title is-3">Introduction</h2>
+        <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
             <style>
@@ -286,18 +286,22 @@
             <body>
             
             <p class="indented">
-              We propose a data processing method Semi-supervised
-              Learning-based Hierarchical Waypoint Extraction (SSL-HWE) to en
-             hance downstream imitation learning from human demon
-             stration datasets. Our approach involves two main steps: (1)
-              Key Interval Segmentation: We use semi-supervised learn
-             ing on side-view image sequences to predict key intervals. (2)
-              Hierarchical Waypoint Extraction: We formulate and solve
-              optimization problems with interval-specific constraints to
-              determine an efficient waypoint selection vector. This vector
-              guides the adjustment of actions in the demonstration dataset,
-              resulting in a refined dataset that reduces compounding
-              errors in imitation learning.</p>
+              We propose a data processing method for human demonstration datasets, called Semi-Supervised Learning-based
+              Hierarchical Waypoint Extraction (SSL-HWE), to enhance
+              downstream imitation learning performance. Our approach
+              consists of two main steps: (1) Key Interval Segmentation:
+              We develop a semi-supervised learning model that utilizes
+              a small labeled dataset to predict key intervals in unlabeled
+              data. This model processes side-view image sequences to
+              generate categorical probabilities, which are then converted
+              into predicted labels to segment trajectories into key and non-
+              key intervals. (2) Hierarchical Waypoint Extraction: Leverag-
+              ing these segmented labels, we solve optimization problems
+              with interval-specific constraints to derive waypoint selection
+              vectors. These vectors indicate which timesteps should be
+              selected as waypoints, and are used to adjust actions in
+              the demonstration dataset. The pipeline of our method is
+              illustrated in Figure 1.</p>
             </body>
            
           </p>
@@ -306,14 +310,12 @@
        <div class="item", style="text-align: center;">
         <!-- Your image here -->
         <img src="static/images/pipline.png" alt="MY ALT TEXT"/>
-        <!-- <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2> -->
+        <h2 class="subtitle has-text-centered">
+          Fig: The pipeline of SSL-HWE. The full delineation of the key intervals of the dataset is achieved by semi-supervised learning using a small number of datasets labeled with key intervals, after which the key frames in the task are extracted by optimizing the trajectory reconstruction deviation.
+        </h2>
       </div>
-      
-
-</div>
-</div>
+    </div>
+  </div>
 </section>
 <!-- End image carousel -->
 
@@ -351,21 +353,7 @@
       </p> -->
       <h3 class="title is-5">Task 1: Kitchen</h3>
         <div class="content">
-          <p>
-            <style>
-              /* CSS样式 */
-              .indented {
-                text-indent: 2em; /* 首行缩进2em */
-              }
-            </style>
-            </head>
-            <body>
-            
-            <p class="indented">
-              Place the pot on the induction cooker and add tomatoes and green peppers into the pot.</p>
-            </body>
-  
-          </p>
+
         </div>
       <!-- <p>
         blablabla
@@ -404,24 +392,9 @@
       </div>
 
       <br>
-      <h3 class="title is-5">Task 2: Desk storage</h3>
+      <h3 class="title is-5">Task 2: Desk Storage</h3>
         <div class="content">
-          <p>
-            <style>
-              /* CSS样式 */
-              .indented {
-                text-indent: 2em; /* 首行缩进2em */
-              }
-            </style>
-            </head>
-            <body>
-            
-            <p class="indented">
-              Use the robotic arm to pull the drawer open, 
-              then place the tissues and the figurine in the drawer, and finally close the drawer.</p>
-            </body>
-
-          </p>
+         
         </div>
       <!-- <p>
         blablabla
@@ -460,26 +433,9 @@
       </div>
 
       <br>
-      <h3 class="title is-5">Task 3: Desk clear</h3>
+      <h3 class="title is-5">Task 3: Desk Clear</h3>
         <div class="content">
-          <p>
-            <style>
-              /* CSS样式 */
-              .indented {
-                text-indent: 2em; /* 首行缩进2em */
-              }
-            </style>
-            </head>
-            <body>
-            
-            <p class="indented">
-
-              First, use the robotic arm to pick up the broom and dustpan respectively, 
-              then sweep the two clumps of garbage randomly distributed in the square area into the dustpan, 
-              and then put the broom and dustpan back into place.</p>
-            </body>
-
-          </p>
+          
         </div>
       <!-- <p>
         blablabla
