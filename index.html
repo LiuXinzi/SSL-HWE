@@ -161,102 +161,20 @@
             </head>
             <body>
             <p class="indented">
-              In recent years, imitation learning based on behavioral
-              cloning has become an efficient method in automated vehicle
-              control as well as robot manipulation. Imitation
-              learning learns strategies from expert demonstrations by
-              observing and imitating the behavior of human experts to
-              learn to perform a specific task; more specifically, it directly
-              converts the end-to-end mapping decision of observation to
-              action into a supervised learning problem, effectively
-              solving the problems of model dependence in model-based
-              approaches and the difficulty of determining the reward
-              function and the large exploration range in reinforcement
-              learning algorithms.
-            </p>
-            <p class="indented">
-              Imitation learning is still limited by the problem of com
-              pounding errors, the accumulation of small errors
-               in predicting actions that lead to errors in the distribution
-               of evaluation data versus the distribution of training data.
-               Most of the previous work on compounding errors consists
-               of increasing the number of datasets and optimizing the
-               model structure, but almost ignores just processing the
-               datasets without additional new data. It is well known that
-               the high success rate of imitation learning algorithms in a
-               given task depends heavily on high-quality datasets. High
-               quality in this context can be defined as fewer interfering
-               trajectories and simpler and easier to understand execution
-               strategies, e.g. if the experiment is to grasp a cup at a
-               specified location, we would like the robotic arm to approach
-               the cup faster and more directly and grasp it steadily, rather
-               than zigzagging and colliding with the cup several times and
-               then barely grasping it. Redundant trajectories do not have
-               the effect of increasing the training data, but instead have
-               the side effect of being intrusive and misleading; in other
-               words, a high-quality dataset also implies a simpler and more
-               learnable data distribution. Imitation learning datasets are
-               precious and scarce, and requiring high-quality datasets only
-               limits the utility of the model. We would like to accept the
-               instability of dataset quality and improve the quality of the
-               dataset through data processing to reduce the complexity of the dataset distribution and enhance learnability. In imitation
-               learning, information about the current environment is often
-               difficult to change, which requires modeling the known
-               environment or obtaining more known information, but it
-               has been demonstrated that ensuring consistency of actions
-               in type situations can be effective in improving the stability
-               of strategies by making appropriate modifications to the mod
-              ifiable target sequences. Therefore, circumventing
-               useless and redundant actions by directly acting on the action
-               sequences in an appropriate way not only simplifies the data
-               set distribution but also improves action consistency, which
-               is a feasible solution to the above mentioned requirements.
-            </p>
-            <p class="indented">
-              <strong>Imitation Learning.</strong>
-            </p>
-
-            <p class="indented">
-              <strong>Model Structure.</strong>
-              Imitation learning learns strategies
-              through expert dataset, and its deployment effectiveness
-              depends on the learning ability of the model and the quality
-              of the expert example dataset. To combat compound errors,
-              previous work has used new policy architectures such as
-              the use of implicit representations or diffusion strategies 
-              to improve the model's learning ability and adapt
-              to complex data distributions. Since our approach does not
-              require modifications to the model, it is compatible with
-              these approaches.
-            </p>
-            <p class="indented">
-              <strong>Dataset.</strong>
-              In addition to this, modifications to the dataset
-              can be made in two general directions, the first of which
-              is to reduce unfamiliar states by increasing the amount and
-              range of states in the dataset with the intention of covering
-              all states as much as possible. Examples include increasing
-              the data range by adding noise during data collection
-              or using online datasets to improve deployment
-              performance. The second is by reducing the decision scope,
-              i.e., modifying the dataset and simplifying it by removing
-              redundant data. Some people use heuristics based on end
-             effector characteristics or robot speed, or reconstruction
-              errors between waypoints and the original trajectory. 
-              These approaches directly extract waypoints,
-              which do not guarantee the success rate of reproducing the
-              points after fetching them, or the waypoints may miss the
-              real critical points that determine the success of the task
-              due to the difference in the definition of the fetched points.
-              Alternatively, paths can be divided into sparse vs. dense and
-              proximity vs. interaction phases to modify the
-              action, but how to differentiate between the different phases
-              of the paths requires the introduction of a large number
-              of human calibrations or complete knowledge of the task
-              phases, which introduces additional work and limitations. We
-              combine the advantages of the above multiple ideas to avoid
-              the omission possibility of blind point taking and the large
-              amount of human work.
+              Imitation learning has proven effective for achieving manipulation tasks 
+              when provided with high-quality human demonstrations. However, human demonstrations 
+              often contain imperfections, injecting noise and complexity into the dataset. In this paper,
+              we propose a novel data processing method that enhances downstream imitation learning by 
+              modifying only the action data, using a small set of labeled key intervals. Our approach 
+              consists of two main components: semi-supervised learning for key interval segmentation 
+              and optimization-based waypoint extraction. The semi-supervised learning model identifies 
+              key intervals in the unlabeled dataset, enabling full segmentation of each trajectory in 
+              the demonstrations. These interval labels are then used to solve optimization problems with 
+              interval-specific constraints to derive waypoints, which are subsequently used to adjust the 
+              actions in the demonstration dataset. Our data processing algorithm was validated through a 
+              series of real-world experiments in conjunction with a state-of-the-art imitation learning 
+              algorithm. The results demonstrate that our approach surpasses the existing data processing 
+              algorithm by 30\% to 60\%.
             </p>
           </body>
           </p>
