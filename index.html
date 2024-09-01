@@ -229,7 +229,7 @@
         <!-- Your image here -->
         <img src="static/images/pipline.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-          Fig. 1: The pipeline of SSL-HWE. The full delineation of the key intervals of the dataset is achieved by semi-supervised learning using a small number of datasets labeled with key intervals, after which the key frames in the task are extracted by optimizing the trajectory reconstruction deviation.
+          Fig. 1: The pipeline of SSL-HWE. The semi-supervised learning model employs side-view images from the labeled subset of $\D$ to predict key intervals in the unlabeled subset. The resulting interval-segmented labels are then used in optimizations with interval-specific constraints to extract waypoint selection vectors. The modified dataset $\bar{\D}$, with adjusted actions based on these optimized waypoints, is utilized for downstream imitation learning.
         </h2>
       </div>
     </div>
